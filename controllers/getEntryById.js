@@ -3,7 +3,7 @@ const { prisma } = require("../db/config");
 const addEntry = async(req, res) => {
     try {
         const {userId, productId, count} = req.body;
-        if(!userId || !productId || !count) return res.status(404).json({error: "All fields required"})
+        if(!userId || !productId || !count) return res.status(404).json({error: "Cart not found"})
         
         const newEntry = await prisma.cart.create({
             data: {
